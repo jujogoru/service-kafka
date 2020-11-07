@@ -31,18 +31,18 @@ public class KafkaController {
     }
     
     @Bean
-    public RestTemplate restTemplate() {
+    public RestTemplate restTemplateController() {
         return new RestTemplate();
     }
     
     @Autowired
-	private RestTemplate restTemplate;
+	private RestTemplate restTemplateController;
 	
     @GetMapping(value = "/jujoKafka")
     public ResponseEntity<?> getTest() {
 
 		Map<String, String> json = new HashMap<>();
-		String response = restTemplate.getForObject("http://localhost:8089/api/v1/jujo", String.class);
+		String response = restTemplateController.getForObject("http://localhost:8089/api/v1/jujo", String.class);
 		json.put("response", response);
 		
 		return new ResponseEntity<Map<String, String>>(json, HttpStatus.OK);
@@ -55,7 +55,7 @@ public class KafkaController {
 		
 		String queryParam = user != null ? "?user={user}" : ""; 
 		
-    	List<Alarm> alarmsList = Arrays.asList(restTemplate
+    	List<Alarm> alarmsList = Arrays.asList(restTemplateController
     			.getForObject("http://localhost:8089/api/v1/alarms"
     					.concat(queryParam), Alarm[].class, pathVariables));
 		
