@@ -57,3 +57,8 @@ $ docker logs -f service-kafka
 ```bash
 $ curl -X POST -F 'ticker=AMZN' http://localhost:8090/api/v1/notifications/tickers
 ```
+
+### Swagger Documentation
+```bash
+http://localhost:8090/api/v1/swagger-kafka.html
+```
