@@ -16,3 +16,6 @@ spring:
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
 springdoc:
   swagger-ui.path: /swagger-kafka.html
+logging:
+  level: 
+    com.jujogoru: DEBUG

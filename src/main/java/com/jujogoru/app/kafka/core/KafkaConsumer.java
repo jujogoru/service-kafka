@@ -29,7 +29,6 @@ public class KafkaConsumer {
     public void consume(String ticker) throws IOException {
         logger.debug(String.format("Consumer with ticker %s", ticker));
         TickerPrice tickerPrice = new TickerPrice().setTickerPrice(ticker); 
-        HttpStatus response = restTemplate.postForObject("http://localhost:8089/api/v1/alarms/stocks", tickerPrice,  HttpStatus.class);
-        logger.debug(String.format("Service alarms stocks response: %s", response));
+        restTemplate.postForObject("http://localhost:8089/api/v1/alarms/stocks", tickerPrice,  HttpStatus.class);
     }
 }
